@@ -1,0 +1,40 @@
+{
+  "actions": [
+    {
+      "type": "rename",
+      "from": "contract.pdf",
+      "to": "ACME-MSA-v2.pdf"
+    },
+    {
+      "type": "bates",
+      "range": "000100-000125"
+    },
+    {
+      "type": "convert",
+      "to": "DOCX",
+      "pages": 12
+    }
+  ],
+  "logs": [
+    {
+      "ts": "2025-09-16T12:00:00Z",
+      "level": "info",
+      "msg": "Converted to DOCX"
+    },
+    {
+      "ts": "2025-09-16T12:01:15Z",
+      "level": "info",
+      "msg": "Applied Bates numbering 000100-000125"
+    },
+    {
+      "ts": "2025-09-16T12:01:30Z",
+      "level": "info",
+      "msg": "File renamed to ACME-MSA-v2.pdf"
+    },
+    {
+      "ts": "2025-09-16T12:02:00Z",
+      "level": "success",
+      "msg": "Document processing completed successfully"
+    }
+  ]
+}
