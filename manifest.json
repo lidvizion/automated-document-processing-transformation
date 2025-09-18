@@ -1,0 +1,7 @@
+{
+  "name": "Automated Document Workflows",
+  "slug": "automated-document-workflows",
+  "task": "conversion",
+  "inputs": ["pdf", "image"],
+  "outputs": ["docx", "structured_pdf", "logs"]
+}
