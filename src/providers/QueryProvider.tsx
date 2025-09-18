@@ -26,20 +26,16 @@ const queryClient = new QueryClient({
 
 // Add global error handling
 queryClient.setMutationDefaults(['processingHistory'], {
-  onError: (error) => {
+  retry: (failureCount, error) => {
     logger.error('Mutation error', { 
-      error: error instanceof Error ? error.message : 'Unknown error' 
+      error: error instanceof Error ? error.message : 'Unknown error',
+      failureCount
     });
+    return failureCount < 2; // Retry once
   },
 });
 
-queryClient.setQueryDefaults(['processingHistory'], {
-  onError: (error) => {
-    logger.error('Query error', { 
-      error: error instanceof Error ? error.message : 'Unknown error' 
-    });
-  },
-});
+// Global query error handling is now done through the default options above
 
 interface QueryProviderProps {
   children: ReactNode;

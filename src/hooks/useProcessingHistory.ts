@@ -30,7 +30,7 @@ const mockApi = {
     if (typeof window !== 'undefined') {
       const stored = localStorage.getItem('processingHistory');
       if (stored) {
-        return JSON.parse(stored).map((item: any) => ({
+        return JSON.parse(stored).map((item: ProcessingHistory & { timestamp: string }) => ({
           ...item,
           timestamp: new Date(item.timestamp),
         }));
