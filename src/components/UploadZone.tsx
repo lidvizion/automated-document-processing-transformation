@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useCallback, useRef, useState } from 'react';
-import { Upload, FileText, Image as ImageIcon, AlertCircle, CheckCircle } from 'lucide-react';
+import { Upload, FileText, Image as ImageIcon } from 'lucide-react';
 import { fileValidator, FileValidationResult } from '../lib/file-validation';
 // Simple console logger for deployment compatibility
 const logger = {
@@ -31,7 +31,7 @@ interface UploadZoneProps {
 
 export function UploadZone({ onFilesUploaded, maxFiles = 10, disabled = false }: UploadZoneProps) {
   const [isDragOver, setIsDragOver] = useState(false);
-  const [uploadProgress, setUploadProgress] = useState<{ [key: string]: number }>({});
+  // Upload progress tracking removed for simplicity
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileUpload = useCallback(async (files: FileList | File[]) => {
@@ -75,8 +75,7 @@ export function UploadZone({ onFilesUploaded, maxFiles = 10, disabled = false }:
         // Use sanitized file if available
         const fileToUse = validationResult.sanitizedFile || file;
 
-        // Simulate upload progress
-        setUploadProgress(prev => ({ ...prev, [fileId]: 0 }));
+        // Upload progress tracking removed for simplicity
         
         const reader = new FileReader();
         reader.onload = (e) => {
@@ -91,21 +90,7 @@ export function UploadZone({ onFilesUploaded, maxFiles = 10, disabled = false }:
 
           uploadedFiles.push(uploadedFile);
           
-          // Simulate progress
-          let progress = 0;
-          const interval = setInterval(() => {
-            progress += Math.random() * 30;
-            if (progress >= 100) {
-              progress = 100;
-              clearInterval(interval);
-              setUploadProgress(prev => {
-                const newProgress = { ...prev };
-                delete newProgress[fileId];
-                return newProgress;
-              });
-            }
-            setUploadProgress(prev => ({ ...prev, [fileId]: progress }));
-          }, 200);
+          // Upload progress simulation removed for simplicity
 
           logger.info('File uploaded successfully', { 
             fileName: fileToUse.name, 

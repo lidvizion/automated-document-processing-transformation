@@ -34,12 +34,10 @@ export interface ProcessingTimelineProps {
 export function ProcessingTimeline({ 
   steps, 
   currentStep, 
-  isProcessing, 
-  onStepComplete,
-  onError 
+  isProcessing
 }: ProcessingTimelineProps) {
   const [completedSteps, setCompletedSteps] = useState<Set<string>>(new Set());
-  const [errorSteps, setErrorSteps] = useState<Set<string>>(new Set());
+  const [errorSteps] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     // Update completed steps based on current step
@@ -60,15 +58,7 @@ export function ProcessingTimeline({
     }
   }, [currentStep, steps]);
 
-  const handleStepError = (stepId: string, error: string) => {
-    setErrorSteps(prev => new Set(prev).add(stepId));
-    logger.error('Processing step failed', {
-      stepId,
-      error,
-      progress: `${currentStep}/${steps.length}`,
-    });
-    onError?.(stepId, error);
-  };
+  // Error handling is managed internally
 
   const getStepIcon = (step: ProcessingStep, index: number) => {
     const IconComponent = step.icon;

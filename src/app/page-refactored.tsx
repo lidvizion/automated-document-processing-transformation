@@ -1,14 +1,11 @@
 'use client';
 
-import React, { useState, useCallback, useRef } from 'react';
+import React, { useState, useCallback } from 'react';
 import { 
-  Download, CheckCircle, AlertCircle, RefreshCw, 
-  X, Settings, History, Trash2, Eye, FileCheck, Zap, Shield, 
-  BarChart3, Calendar, Menu, ChevronRight, Star, Sparkles,
-  Clock, Users, Award, ArrowRight
+  Settings, History, FileCheck, Shield, 
+  BarChart3
 } from 'lucide-react';
 import { saveAs } from 'file-saver';
-import JSZip from 'jszip';
 
 // Import our new components and utilities
 import { UploadZone, UploadedFile } from '../components/UploadZone';
@@ -63,13 +60,10 @@ export default function DocumentProcessing() {
   const [currentStep, setCurrentStep] = useState(0);
   const [showSettings, setShowSettings] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [processingSettings, setProcessingSettings] = useState<ProcessingSettings>({
+  const [processingSettings] = useState<ProcessingSettings>({
     batesStartNumber: 100,
     outputFormat: 'both',
   });
-  const [selectedFiles, setSelectedFiles] = useState<string[]>([]);
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Enhanced file upload handler using the new UploadZone component
   const handleFilesUploaded = useCallback((files: UploadedFile[]) => {
