@@ -5,7 +5,13 @@ import {
   CheckCircle, AlertCircle, Clock, FileText, 
   RefreshCw, Zap, Shield, Download, BarChart3 
 } from 'lucide-react';
-import { logger } from '../lib/logger';
+// Simple console logger for deployment compatibility
+const logger = {
+  info: (msg: string, context?: Record<string, unknown>) => console.log(`[INFO] ${msg}`, context || ''),
+  error: (msg: string, context?: Record<string, unknown>) => console.error(`[ERROR] ${msg}`, context || ''),
+  warn: (msg: string, context?: Record<string, unknown>) => console.warn(`[WARN] ${msg}`, context || ''),
+  debug: (msg: string, context?: Record<string, unknown>) => console.debug(`[DEBUG] ${msg}`, context || ''),
+};
 
 export interface ProcessingStep {
   id: string;

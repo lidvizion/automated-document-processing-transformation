@@ -3,7 +3,13 @@
 import React, { useCallback, useRef, useState } from 'react';
 import { Upload, FileText, Image as ImageIcon, AlertCircle, CheckCircle } from 'lucide-react';
 import { fileValidator, FileValidationResult } from '../lib/file-validation';
-import { logger } from '../lib/logger';
+// Simple console logger for deployment compatibility
+const logger = {
+  info: (msg: string, context?: Record<string, unknown>) => console.log(`[INFO] ${msg}`, context || ''),
+  error: (msg: string, context?: Record<string, unknown>) => console.error(`[ERROR] ${msg}`, context || ''),
+  warn: (msg: string, context?: Record<string, unknown>) => console.warn(`[WARN] ${msg}`, context || ''),
+  debug: (msg: string, context?: Record<string, unknown>) => console.debug(`[DEBUG] ${msg}`, context || ''),
+};
 
 export interface UploadedFile {
   id: string;
