@@ -11,11 +11,11 @@ import { saveAs } from 'file-saver';
 import JSZip from 'jszip';
 
 // Import our new components and utilities
-import { UploadZone, UploadedFile } from '@/components/UploadZone';
-import { ProcessingTimeline, ProcessingStep, defaultProcessingSteps } from '@/components/ProcessingTimeline';
-import { useProcessingHistory } from '@/hooks/useProcessingHistory';
-import { useWorkspaceContext, useUserId } from '@/contexts/WorkspaceContext';
-import { logger } from '@/lib/logger';
+import { UploadZone, UploadedFile } from '../components/UploadZone';
+import { ProcessingTimeline, ProcessingStep, defaultProcessingSteps } from '../components/ProcessingTimeline';
+import { useProcessingHistory } from '../hooks/useProcessingHistory';
+import { useWorkspaceContext, useUserId } from '../contexts/WorkspaceContext';
+import { logger } from '../lib/logger';
 
 interface ProcessingAction {
   type: string;

@@ -1,6 +1,6 @@
 // React Query hook for processing history management
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { logger } from '@/lib/logger';
+import { logger } from '../lib/logger';
 
 export interface ProcessingHistory {
   id: string;

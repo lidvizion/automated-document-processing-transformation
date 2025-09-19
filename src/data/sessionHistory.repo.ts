@@ -1,5 +1,5 @@
 // MongoDB session history repository with proper indexing
-import { logger } from '@/lib/logger';
+import { logger } from '../lib/logger';
 
 export interface SessionHistoryDocument {
   _id: string;

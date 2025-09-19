@@ -5,7 +5,7 @@ import {
   CheckCircle, AlertCircle, Clock, FileText, 
   RefreshCw, Zap, Shield, Download, BarChart3 
 } from 'lucide-react';
-import { logger } from '@/lib/logger';
+import { logger } from '../lib/logger';
 
 export interface ProcessingStep {
   id: string;

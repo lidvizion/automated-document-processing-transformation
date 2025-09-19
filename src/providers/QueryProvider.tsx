@@ -2,7 +2,7 @@
 
 import React, { ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { logger } from '@/lib/logger';
+import { logger } from '../lib/logger';
 
 // Create a client
 const queryClient = new QueryClient({

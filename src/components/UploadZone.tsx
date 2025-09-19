@@ -2,8 +2,8 @@
 
 import React, { useCallback, useRef, useState } from 'react';
 import { Upload, FileText, Image as ImageIcon, AlertCircle, CheckCircle } from 'lucide-react';
-import { fileValidator, FileValidationResult } from '@/lib/file-validation';
-import { logger } from '@/lib/logger';
+import { fileValidator, FileValidationResult } from '../lib/file-validation';
+import { logger } from '../lib/logger';
 
 export interface UploadedFile {
   id: string;
